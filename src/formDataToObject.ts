@@ -16,7 +16,7 @@ export function formDataToObject(
     const parsedValue = (() => {
       if (value === "false") return false;
       if (value === "true") return true;
-      if (!isNaN(Number(value))) return Number(value);
+      if (value !== "" && !isNaN(Number(value))) return Number(value);
       return value;
     })();
 

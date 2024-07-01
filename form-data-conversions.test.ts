@@ -1,5 +1,7 @@
-import { expect } from "vitest";
+import { expect, describe, test } from "vitest";
 import { formDataToObject } from "./dist/formDataToObject";
+import { objectToFormData } from "./dist/objectToFormData";
+import { NestedObject } from "./dist/types";
 
 describe("FormData Conversion", () => {
   test("formDataToObject", () => {
@@ -11,7 +13,7 @@ describe("FormData Conversion", () => {
 
     const expected: NestedObject = {
       user: {
-        age: "30",
+        age: 30,
         name: "Alice",
         skills: ["JavaScript", "TypeScript"],
       },
@@ -25,8 +27,8 @@ describe("FormData Conversion", () => {
   test("objectToFormData", () => {
     const input: NestedObject = {
       user: {
-        age: "30",
         name: "Alice",
+        age: "30",
         skills: ["JavaScript", "TypeScript"],
       },
     };
@@ -38,7 +40,7 @@ describe("FormData Conversion", () => {
       ["user.skills[1]", "TypeScript"],
     ];
 
-    const formData = objectToFormData({ input });
+    const formData = objectToFormData(input);
     const formDataEntries = Array.from(formData.entries());
 
     expect(formDataEntries).toEqual(expectedEntries);

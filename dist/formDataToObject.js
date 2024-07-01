@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formDataToObject = void 0;
+exports.formDataToObject = formDataToObject;
 function formDataToObject(formData = new FormData(), options) {
     var _a, _b, _c;
     const { parentKey } = options !== null && options !== void 0 ? options : { parentKey: "" };
@@ -15,7 +15,7 @@ function formDataToObject(formData = new FormData(), options) {
                 return false;
             if (value === "true")
                 return true;
-            if (!isNaN(Number(value)))
+            if (value !== "" && !isNaN(Number(value)))
                 return Number(value);
             return value;
         })();
@@ -54,4 +54,3 @@ function formDataToObject(formData = new FormData(), options) {
     }
     return result;
 }
-exports.formDataToObject = formDataToObject;

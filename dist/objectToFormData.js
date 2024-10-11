@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.objectToFormData = void 0;
+exports.objectToFormData = objectToFormData;
 /** Accepts objects and arrays */
 function objectToFormData(object, options) {
     const { arrayKeyPrefix, parentKey, formData } = options !== null && options !== void 0 ? options : {
@@ -42,4 +42,3 @@ function objectToFormData(object, options) {
     }
     return formData;
 }
-exports.objectToFormData = objectToFormData;

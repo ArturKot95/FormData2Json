@@ -1,6 +1,6 @@
 {
   "name": "formdata2json",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "FormData -> JSON, JSON -> FormData, FormData -> Object, Object -> FormData Converter.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ArturKot95/FormData2Json#readme",
   "devDependencies": {
+    "typescript": "^5.5.2",
     "vitest": "^0.33.0"
   }
 }

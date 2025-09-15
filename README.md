@@ -9,7 +9,8 @@ This library provides utility functions for transforming FormData to JSON and vi
 - Convert plain objects to FormData
 - Convert FormData to plain objects
 - Handling nested object structures
-- support for arrays
+- Support for arrays with indexed notation (`[0]`, `[1]`, etc.)
+- Support for arrays with empty bracket notation (`[]`)
 
 ## Usage
 
@@ -35,6 +36,26 @@ const jsonString = formDataToJson(formData);
 
 const formDataInstance = jsonToFormData(json);
 ```
+
+### Array Support
+
+The library supports both indexed and empty bracket notation for arrays:
+
+**Indexed notation:**
+```js
+formData.append("user.skills[0]", "JavaScript");
+formData.append("user.skills[1]", "TypeScript");
+// Results in: { user: { skills: ["JavaScript", "TypeScript"] } }
+```
+
+**Empty bracket notation:**
+```js
+formData.append("user.skills[]", "JavaScript");
+formData.append("user.skills[]", "TypeScript");
+// Results in: { user: { skills: ["JavaScript", "TypeScript"] } }
+```
+
+Both notations produce the same output, giving developers flexibility in how they structure their form data.
 
 
 ## API
